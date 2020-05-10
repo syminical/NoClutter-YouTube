@@ -1,0 +1,19 @@
+{
+   "manifest_version":2,
+   "name":"No Clarify - YouTube",
+   "version":"1.0",
+   "description":"Removes Youtube's intrusive \"Clarify\" boxes from under videos and in search results.",
+   "icons":{
+      "48":"border-48.png"
+   },
+   "browser_specific_settings": {
+      "gecko": {
+          "id": "NCYT@syminical.vfd"
+      }
+   },
+   "background": {
+      "scripts":["noClarifyYT.js"],
+      "persistent":true
+   },
+   "permissions":["webNavigation", "tabs", "*://*.youtube.com/watch?*", "*://*.youtube.com/results?*"]
+}

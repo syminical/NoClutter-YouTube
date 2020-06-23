@@ -1,18 +1,18 @@
 {
    "manifest_version":2,
-   "name":"No Clarify - YouTube",
+   "name":"No Clutter - YouTube",
    "version":"1.0",
-   "description":"Removes Youtube's intrusive \"Clarify\" boxes from under videos and in search results.",
+   "description":"Removes Youtube's intrusive ad prompts and \"information\" boxes from videos and search results.",
    "icons":{
       "48":"NCYT.png"
    },
    "browser_specific_settings": {
       "gecko": {
-          "id": "NCYT@syminical.vfd"
+          "id": "NCYT@syminical.sym"
       }
    },
    "background": {
-      "scripts":["noClarifyYT.js"],
+      "scripts":["noClutterYT.js"],
       "persistent":true
    },
    "permissions":["tabs", "*://*.youtube.com/watch?*", "*://*.youtube.com/results?*"]

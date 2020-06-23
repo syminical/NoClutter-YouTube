@@ -34,26 +34,35 @@ const purgeV = `
     }
     delete evil;`
 
-protect = function(wpn, id) {
+purge = function(id, wpn) { browser.tabs.executeScript(id, {code:wpn}); }
+
+protect = function(id, target, name, wpn) {
   browser.tabs.executeScript(id, {code:`
-    wpn = \`${wpn}\`;
-    guardian = new MutationObserver(function(g=guardian, w=wpn) {
-      eval(w);
+    ${name} = new MutationObserver(function(m, g) {
+      wpn = \`${wpn}\`;
+      eval(wpn);
+      console.log("rEEEEEEEEEEEEEEEE\`"+wpn+"\`");
       //g.disconnect();
       //delete g;
     });
-    guardian.observe(document.getElementsByTagName("body")[0], {childList: true, subtree: true});
-    eval(wpn);`});
+    //eval(\`${wpn}\`);
+    console.log("OMG");
+    //console.log(${name});
+    ${name}.observe(${target}, {childList: true});`
+  });
 }
 
 browser.tabs.onUpdated.addListener(function(id, change) {
   if (change.status == "complete") {
-    protect(purgeS, id);
+    //console.log("WTF");
+    protect(id, `document.getElementById("contents")`, `guardianS`, purgeS);
+    //purge(id, purgeS);
   }
 }, {urls:["*://*.youtube.com/results?*"], properties:["status"]});
 
 browser.tabs.onUpdated.addListener(function(id, change) {
   if (change.status == "complete") {
-    protect(purgeV, id);
+    protect(id, `document.getElementById("primary-inner")`, `guardianV`, purgeV);
+    //purge(id, purgeV);
   }
 }, {urls:["*://*.youtube.com/watch?*"], properties:["status"]});

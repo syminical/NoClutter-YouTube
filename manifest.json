@@ -2,18 +2,28 @@
    "manifest_version":2,
    "name":"No Clutter - YouTube",
    "version":"1.0",
-   "description":"Removes Youtube's intrusive ad prompts and \"information\" boxes from videos and search results.",
+   
+   "description":"Removes Youtube's intrusive ad prompts and \"information\" boxes.",
    "icons":{
-      "48":"NCYT.png"
+      "48":"NCYT-48.png"
    },
+   
    "browser_specific_settings": {
       "gecko": {
           "id": "NCYT@syminical.sym"
       }
    },
+   
+   "browser_action": {
+      "default_icon": "popup/NCYT-32.png",
+      "default_title": "No Clutter YouTube",
+      "default_popup": "popup/settings.html"
+   },
+   
    "background": {
       "scripts":["noClutterYT.js"],
       "persistent":true
    },
-   "permissions":["tabs", "*://*.youtube.com/watch?*", "*://*.youtube.com/results?*"]
+   
+   "permissions":["storage", "tabs", "*://*.youtube.com/watch?*", "*://*.youtube.com/results?*"]
 }

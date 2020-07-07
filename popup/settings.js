@@ -1,13 +1,11 @@
 async function loadSettings() {
-   async function loadVal(s) {
+   async function loadVal(s, v = true) {
       var _ = await browser.storage.local.get(s);
-      return (!Object.keys(_).length ? true : Object.values(_)[0]);
+      return (!Object.keys(_).length ? v : Object.values(_)[0]);
    }
    
    var settings = {
-      'adSkip' : await loadVal('adSkip'),
-      'groupSkip' : await loadVal('groupSkip'),
-      'contextHide' : await loadVal('contextHide')
+      'contextHide' : await loadVal('contextHide', true)
    };
    
    var _ = null;

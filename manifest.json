@@ -3,7 +3,7 @@
    "name":"No Clutter - YouTube",
    "version":"1.0",
    
-   "description":"Removes Youtube's intrusive ad prompts and \"information\" boxes.",
+   "description":"Removes Youtube's intrusive \"information\" boxes.",
    "icons":{
       "48":"NCYT-48.png"
    },
@@ -25,5 +25,5 @@
       "persistent":true
    },
    
-   "permissions":["storage", "tabs", "*://*.youtube.com/watch?*", "*://*.youtube.com/results?*"]
+   "permissions":["storage", "tabs", "*://*.youtube.com/*"]
 }
